@@ -7,69 +7,69 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        double Nota_uno = 0;
-        double Nota_dos = 0;
-        double Nota_tres = 0;
-        double Asistencia = 0;
-        double Suma_De_notas = 0;
-        double Pomedio_de_notas = 0;
-        double Nota_mas_baja = 0;
-        double puntos_extras = 0;
-        double Nota_final = 0;
+        double notaUno = 0;
+        double notaDos = 0;
+        double notaTres = 0;
+        double asistencia = 0;
+        double sumaDeNotas = 0;
+        double promedioDeNotas = 0;
+        double notaMasBaja = 0;
+        double puntosExtras = 0;
+        double notaFinal = 0;
 
         System.out.println("Ingrese las notas de 3 materias (0.0 a 5.0):");
-        System.out.println("Nota uno:");
-        Nota_uno = sc.nextDouble();
-        System.out.println("Nota dos:");
-        Nota_dos = sc.nextDouble();
-        System.out.println("Nota tres:");
-        Nota_tres = sc.nextDouble();
+        System.out.println("Nota de materia uno:");
+        notaUno = sc.nextDouble();
+        System.out.println("Nota de materia dos:");
+        notaDos = sc.nextDouble();
+        System.out.println("Nota de materia tres:");
+        notaTres = sc.nextDouble();
 
         System.out.println("Ingrese el total de asistencias :");
-        Asistencia = sc.nextInt();
+        asistencia = sc.nextInt();
 
-        Suma_De_notas = Nota_uno + Nota_dos + Nota_tres;
-        Pomedio_de_notas = Suma_De_notas / 3;
+        sumaDeNotas = notaUno + notaDos + notaTres;
+        promedioDeNotas = sumaDeNotas / 3;
 
-        if (Nota_uno <= Nota_dos) {
-            if (Nota_uno <= Nota_tres) {
-                Nota_mas_baja = Nota_uno;
+        if (notaUno <= notaDos) {
+            if (notaUno <= notaTres) {
+                notaMasBaja = notaUno;
             } else {
-                Nota_mas_baja = Nota_tres;
+                notaMasBaja = notaTres;
             }
         } else {
-            if (Nota_dos <= Nota_tres) {
-                Nota_mas_baja = Nota_dos;
+            if (notaDos <= notaTres) {
+                notaMasBaja = notaDos;
             } else {
-                Nota_mas_baja = Nota_tres;
+                notaMasBaja = notaTres;
             }
         }
 
-        double division = Asistencia / 5;
+        double division = asistencia / 5;
         if (division == (int)division) {
-            puntos_extras = division;
+            puntosExtras = division;
         } else {
             if (division > 0) {
-                puntos_extras = (int)division;
+                puntosExtras = (int)division;
             } else {
-                puntos_extras = (int)division - 1;
+                puntosExtras = (int)division - 1;
             }
         }
 
-        double suma_nota = Pomedio_de_notas + puntos_extras;
-        if (suma_nota < 5.0) {
-            Nota_final = suma_nota;
+        double sumaNota = promedioDeNotas + puntosExtras;
+        if (sumaNota < 5.0) {
+            notaFinal = sumaNota;
         } else {
-            Nota_final = 5.0;
+            notaFinal = 5.0;
         }
 
-        System.out.println("La suma total de las notas es:" + Suma_De_notas);
-        System.out.println("El promedio general es de:" + Pomedio_de_notas);
-        System.out.println("La nota mas baja es de:  " + Nota_mas_baja);
-        System.out.println("Los puntos adicionales de las asistencias es:" + puntos_extras);
-        System.out.println("La nota final es de:  " + Nota_final);
+        System.out.println("La suma total de las notas es:" + sumaDeNotas);
+        System.out.println("El promedio general es de:" + promedioDeNotas);
+        System.out.println("La nota mas baja es de:  " + notaMasBaja);
+        System.out.println("Los puntos adicionales de las asistencias es:" + puntosExtras);
+        System.out.println("La nota final es de:  " + notaFinal);
 
-        if (Nota_final >= 4.5) {
+        if (notaFinal >= 4.5) {
             System.out.println("Cumples con los requisitos para la beca");
         }
         else {
