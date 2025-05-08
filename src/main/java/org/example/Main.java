@@ -17,7 +17,6 @@ public class Main {
         double puntos_extras = 0;
         double Nota_final = 0;
 
-
         System.out.println("Ingrese las notas de 3 materias (0.0 a 5.0):");
         System.out.println("Nota uno:");
         Nota_uno = sc.nextDouble();
@@ -31,9 +30,38 @@ public class Main {
 
         Suma_De_notas = Nota_uno + Nota_dos + Nota_tres;
         Pomedio_de_notas = Suma_De_notas / 3;
-        Nota_mas_baja = Math.min(Nota_uno, Math.min (Nota_dos , Nota_tres));
-        puntos_extras = Math.floor(Asistencia / 5);
-        Nota_final = Math.min(5.0, Pomedio_de_notas + puntos_extras);
+
+        if (Nota_uno <= Nota_dos) {
+            if (Nota_uno <= Nota_tres) {
+                Nota_mas_baja = Nota_uno;
+            } else {
+                Nota_mas_baja = Nota_tres;
+            }
+        } else {
+            if (Nota_dos <= Nota_tres) {
+                Nota_mas_baja = Nota_dos;
+            } else {
+                Nota_mas_baja = Nota_tres;
+            }
+        }
+
+        double division = Asistencia / 5;
+        if (division == (int)division) {
+            puntos_extras = division;
+        } else {
+            if (division > 0) {
+                puntos_extras = (int)division;
+            } else {
+                puntos_extras = (int)division - 1;
+            }
+        }
+
+        double suma_nota = Pomedio_de_notas + puntos_extras;
+        if (suma_nota < 5.0) {
+            Nota_final = suma_nota;
+        } else {
+            Nota_final = 5.0;
+        }
 
         System.out.println("La suma total de las notas es:" + Suma_De_notas);
         System.out.println("El promedio general es de:" + Pomedio_de_notas);
@@ -41,7 +69,7 @@ public class Main {
         System.out.println("Los puntos adicionales de las asistencias es:" + puntos_extras);
         System.out.println("La nota final es de:  " + Nota_final);
 
-        if (Nota_final >= 4.5){
+        if (Nota_final >= 4.5) {
             System.out.println("Cumples con los requisitos para la beca");
         }
         else {
